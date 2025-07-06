@@ -47,14 +47,14 @@ jobs:
       with:
         repository: 'hyphanet/fred'
         fetch-depth: 0
-        ref: 'build01500'
+        ref: 'build01503'
         path: 'wininstaller-innosetup/fred'
 
     - name: prepare the windows installer
       shell: bash
       run: |
         cd ./wininstaller-innosetup
-        curl --location "https://github.com/freenet/fred/releases/download/build01502/freenet-build01503.jar" > freenet.jar
+        curl --location "https://github.com/freenet/fred/releases/download/build01503/freenet-build01503.jar" > freenet.jar
         ./gradlew unzip updateSetupFile
 
     - name: build the windows installer
