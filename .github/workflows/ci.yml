@@ -10,7 +10,7 @@ jobs:
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v7
+      uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
       with:
         fetch-depth: 0
         submodules: recursive
@@ -37,13 +37,13 @@ jobs:
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v7
+      uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
       with:
         fetch-depth: 0
         submodules: recursive
 
     - name: Checkout fred
-      uses: actions/checkout@v7
+      uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
       with:
         repository: 'hyphanet/fred'
         fetch-depth: 0
@@ -65,7 +65,7 @@ jobs:
         
     - name: Upload the windows installer as an artifact
       id: upload-artifact
-      uses: actions/upload-artifact@v7
+      uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
       if: ${{ github.event_name != 'pull_request' }}
       with:
         path: "wininstaller-innosetup/Output/FreenetInstaller.exe"
@@ -73,7 +73,7 @@ jobs:
         archive: false
 
     - name: sign the windows installer
-      uses: SignPath/github-action-submit-signing-request@v2
+      uses: SignPath/github-action-submit-signing-request@c92b958760219087e01f8d67a1669ed57afe2627 # v2
       if: ${{ github.event_name != 'pull_request' }}
       id: sign-installer
       with:
@@ -85,7 +85,7 @@ jobs:
         output-artifact-directory: 'wininstaller-innosetup/OutputSigned'
 
     - name: Upload the signed windows installer as an artifact
-      uses: actions/upload-artifact@v7
+      uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
       if: ${{ github.event_name != 'pull_request' }}
       with:
         path: "wininstaller-innosetup/OutputSigned/FreenetInstaller.exe"
